@@ -99,11 +99,3 @@ jobs:
       - name: Echo outputs
         run: |
           echo "${{ toJSON(steps.push.outputs) }}"
-
-      - name: Test secret
-        run: |
-          if [ -z "${{ secrets.SIGNING_SECRET }}" ]; then
-            echo "Secret SIGNING_SECRET not found!"
-            exit 1
-          fi
-          echo "Secret SIGNING_SECRET found: ${{ secrets.SIGNING_SECRET }}"
